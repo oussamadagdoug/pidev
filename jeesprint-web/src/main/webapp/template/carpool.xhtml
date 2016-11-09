@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrought"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"> 
+
+ <h:head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+        
+    <!-- <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png"/> -->
+
+    <title>ESPRIT - Application </title>
+
+    <!-- Bootstrap core CSS -->
+    <h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+    <!-- <link href="assets/css/bootstrap.css" rel="stylesheet"/> -->
+
+
+    <!-- Custom styles for this template -->
+    <h:outputStylesheet library="css" name="main.css"></h:outputStylesheet>
+    <!-- <link href="assets/css/main.css" rel="stylesheet"/> -->
+
+   
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="assets/js/hover.zoom.js"></script>
+    <script src="assets/js/hover.zoom.conf.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </h:head>
+
+  <h:body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Tunisian Students</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="template.xhtml">Carpool</a></li>
+            <li><a href="about.html">Collocation</a></li>
+            <li><a href="about.html">Event</a></li>
+            <li><a href="blog.html">Members</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<!-- +++++ Welcome Section +++++ -->
+	<div id="ww">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 centered">
+				<!--  <h:graphicImage value="user.png"  />-->
+					<!-- <img src="assets/img/user.png" alt="Stanley"/> -->
+<center>		
+<h:form>
+<h:dataTable value="#{carpoolBean.carpools}" var="carpool" border="1">
+
+<h:column >
+<f:facet name="header">description</f:facet>
+#{carpool.description}
+</h:column>
+<h:column >
+<f:facet name="header">Nombre de  Place</f:facet>
+#{carpool.nbrePlace}
+</h:column>
+<h:column >
+<f:facet name="header">lieu de départ</f:facet>
+#{carpool.locationStart}
+</h:column>
+</h:dataTable>
+<h:commandButton action="#{carpoolBean.initialiser()}" value="Ajout" />
+</h:form >
+
+<h:form rendered="#{carpoolBean.test}">
+<h:panelGrid columns="2">
+<h:outputText value="Description" />
+<h:inputText value="#{carpoolBean.c.carpooldescription}"/>
+<h:outputText value="Nombre de Place" />
+<h:inputText value="#{carpoolBean.c.nbrePlace}"/>
+<h:outputText value="lieu de départ" />
+<h:inputText value="#{carpoolBean.c.locationStart}"/>
+<h:commandButton action="#{carpoolBean.ajouter()}" value="Ajouter" />
+</h:panelGrid>
+</h:form>
+</center>			
+				</div><!-- /col-lg-8 -->
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /ww -->
+	
+	
+	<!-- +++++ Projects Section +++++ -->
+	
+	
+		<!-- <div class="row mt centered">	
+			<div class="col-lg-4">
+				 <a class="zoom green" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port01.jpg" alt="" /></a>
+				<p>APE</p>
+			</div>
+			<div class="col-lg-4">
+				<a class="zoom green" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port02.jpg" alt="" /></a>
+				<p>RAIDERS</p>
+			</div>
+			<div class="col-lg-4">
+				<a class="zoom green" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port03.jpg" alt="" /></a>
+				<p>VIKINGS</p>
+			</div>
+		</div> --><!-- /row -->
+		<!-- <div class="row mt centered">	
+			<div class="col-lg-4">
+				<a class="zoom green" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port04.jpg" alt="" /></a>
+				<p>YODA</p>
+			</div>
+			<div class="col-lg-4">
+				<a class="zoom green" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port05.jpg" alt="" /></a>
+				<p>EMPERORS</p>
+			</div>
+			<div class="col-lg-4">
+				<a class="zoom green" href="work01.html"><img class="img-responsive" src="assets/img/portfolio/port06.jpg" alt="" /></a>
+				<p>CHIEFS</p>
+			</div>
+		</div> --><!-- /row -->
+	<!-- /container -->
+	
+	
+	<!-- +++++ Footer Section +++++ -->
+	
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<h4>My Bunker</h4>
+					<p>
+						Some Address 987,<br/>
+						+34 9054 5455, <br/>
+						Ariena, Tunisia.
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>My Links</h4>
+					<p>
+						<a href="#">Dribbble</a><br/>
+						<a href="#">Twitter</a><br/>
+						<a href="#">Facebook</a>
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>About Us</h4>
+					<p>We are the group WhateverHisName from ESPRIT, This application was created to showcase your work in a simple way. Use it wisely.</p>
+				</div><!-- /col-lg-4 -->
+			
+			</div>
+		
+		</div>
+	</div>
+	
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <h:outputScript library="js" name="bootstrap.min.js"></h:outputScript>
+    <!-- <script src="assets/js/bootstrap.min.js"></script> -->
+  </h:body>
+</html>
